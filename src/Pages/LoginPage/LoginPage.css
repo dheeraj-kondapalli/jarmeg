@@ -114,3 +114,11 @@
     outline: none;
     color: black;
 }
+.text{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-weight: 700;
+}
+.input-group{
+    width: 350px;
+}

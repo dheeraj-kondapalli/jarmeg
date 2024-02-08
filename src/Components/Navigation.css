@@ -1,0 +1,22 @@
+.navbar{
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0.2rem;
+    display: flex;
+}
+.nav-contents{
+    display: flex;
+    flex-direction: row;
+}
+.searchform{
+    margin-right: 20%;
+}
+.search-box{
+    margin-right: 8px;
+    width: 500px;
+}
+.Title{
+    padding-left: 15px;
+}
+.signupbtn{
+    margin-right: 15px;
+}

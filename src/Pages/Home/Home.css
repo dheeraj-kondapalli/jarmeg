@@ -1,0 +1,22 @@
+.outerContainer{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carousel-container{
+    margin: 3%;
+    margin-top: 5%;
+    width: -webkit-fill-available;
+    height: 400px;
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.carouselImg{
+    width: inherit;
+    height: 400px;
+    object-fit: cover;
+}

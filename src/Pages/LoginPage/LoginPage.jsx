@@ -3,8 +3,11 @@ import './LoginPage.css'
 import img from '../Assets/logo1.png'
 import glogo from '../Assets/google logo.png'
 import {loginUser} from "../../Services/UserService";
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from "axios";
 
-const LoginPage = () => {
+
+const LoginPage = ({setCurrentUser}) => {
 
     const [user, setUser] = useState({
         firstname: '',
@@ -17,7 +20,8 @@ const LoginPage = () => {
         e.preventDefault();
         loginUser(user, action)
         .then((response) => {
-            console.log(response);
+            console.log(JSON.stringify(response.data, null, 2));
+            setCurrentUser(response.data);  
         })
         .catch((error) => {
             console.log(error);
@@ -30,18 +34,47 @@ const LoginPage = () => {
         ...user,
         [e.target.name]: e.target.value,
         });
-        console.log(user)
     };
+
+    const googleLogin =
+        useGoogleLogin({
+        onSuccess: async(response) => {
+            try{
+                const res = await axios.get(
+                    "https://www.googleapis.com/oauth2/v3/userinfo",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${response.access_token}`,
+                        },
+                    });
+                    console.log(JSON.stringify(res.data, null, 2));
+                    const user = res.data;
+                    setAction("google");
+                    loginUser(user, action)
+                    .then((response) => {
+                        console.log(JSON.stringify(response.data, null, 2));
+                        setCurrentUser(response.data);  
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+                    
+            } catch (err) {
+                console.log(err);
+            }
+        },
+    });
 
     const [action, setAction] = useState("Sign up");
     return (
-            <div className="outer-container row rounded-5 p-3 bg-white shadow-box-area d-flex justify-content-center align-items-center">
-                <div class="background col-md-5 rounded-4 d-flex justify-content-center align-items-center flex-column left-box" >
+
+            <div className="outer-container row rounded-5 p-3 bg-white shadow-box-area d-flex flex-row justify-content-center align-items-center">
+                <div class="background rounded-4 d-flex justify-content-center align-items-center left-box" >
                     <div class="featured-image">
                         <img src={img} class="img-fluid"></img>
                     </div>
                 </div>
-                <div class="row align-items-center justify-content-center right-box col-md-7">
+                <div class="row align-items-center d-flex justify-content-center right-box col-md-6">
                     <div class="row align-items-center">
                         <form className="cont"> 
                             <div class="header align-items-center justify-content-between">
@@ -58,10 +91,10 @@ const LoginPage = () => {
                                 </div>
                                 </div>}
                             <div className="input-group mb-2">
-                                <input type="email" class="form-control bg-light fs-6" name="email"  placeholder="Email Address" value={user.email} onChange={handleInputChange}/>
+                                <input type="email" className="form-control bg-light fs-6" name="email"  placeholder="Email Address" value={user.email} onChange={handleInputChange}/>
                             </div>
                             <div class="input-group mb-1">
-                                <input type="text" class="form-control bg-light fs-6" name="password" placeholder="Password" value={user.password} onChange={handleInputChange}/>
+                                <input type="text" className="form-control bg-light fs-6" name="password" placeholder="Password" value={user.password} onChange={handleInputChange}/>
                             </div>
                                 {action === "Sign up" ? <div></div> : <div className="forgot-password m-1">forgot password? <span>Click here!</span></div>}
                                 {action === "Login" ? <div></div>:<div>Already have an account?<button type="button" className="btn btn-link"onClick={()=>{setAction("Login");
@@ -76,7 +109,7 @@ const LoginPage = () => {
                                 <button type="submit" className="login-btn btn btn-primary"onClick={(e) => {submitForm(e, action)}}>{action}</button>
                             </div>
                             <div> or </div>
-                            <button type="submit" className="sign-up-btn btn btn-primary" >{action} with Google<img src={glogo}/> </button>
+                            <button type="button" className="sign-up-btn btn btn-primary" onClick={googleLogin}>{action} with Google<img src={glogo}/> </button>
                             {action === "Sign up" ? <div></div> :<button type="submit" className="sign-btn btn btn-primary" onClick={()=>{setAction("Sign up");
                         setUser({
                             firstname: '',
@@ -89,7 +122,7 @@ const LoginPage = () => {
                     </div>
                 </div>
             </div>
-
+               
     )
 }
 export default LoginPage

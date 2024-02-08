@@ -1,6 +1,19 @@
 import axios from "axios";
 
 function  loginUser(user, action){
-        return axios.post(`http://localhost:8085/auth/${action === "Login" ? "login" : "register"}`, user);
+    switch (action) {
+        case "Login":
+            return axios.post('http://localhost:8085/auth/login', user);
+        case "Sign up":
+            return axios.post('http://localhost:8085/auth/register', user);
+        case "google":
+            return axios.post('http://localhost:8085/auth/google', user);
+        default:
+      }
     }
 export {loginUser}
+
+
+
+
+  

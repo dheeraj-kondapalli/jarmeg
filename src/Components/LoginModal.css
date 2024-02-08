@@ -1,0 +1,33 @@
+.login-modal{
+    background-color:rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+.close-modal-btn{
+    border: none;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    margin-left: 2%;
+}
+.close-modal-btn img{
+    height: 30px;
+    width: 30px;
+    margin-left: -12px;
+    margin-top: -10px;
+}
+.innermodal{
+    display: flex;
+    flex-direction: row;
+}
+.modal-content{
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    height: max-content;
+    background-color:rgba(0, 0, 0, 0);
+    border: none;
+}
+.modal-dialog{
+    margin-right: 45%;
+}
