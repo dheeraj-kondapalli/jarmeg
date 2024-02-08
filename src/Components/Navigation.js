@@ -43,7 +43,7 @@ function Navigation() {
                         <Nav.Link href="#action1">New Collection</Nav.Link>
                         <Nav.Link href="#action2">Sale</Nav.Link>
                         <NavDropdown title="Products" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Men</NavDropdown.Item>
+                            <NavDropdown.Item href="/card">Men</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">
                                 Women
                             </NavDropdown.Item>
