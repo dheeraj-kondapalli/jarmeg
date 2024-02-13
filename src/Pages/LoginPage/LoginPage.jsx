@@ -47,10 +47,9 @@ const LoginPage = ({setCurrentUser}) => {
                             Authorization: `Bearer ${response.access_token}`,
                         },
                     });
-                    console.log(JSON.stringify(res.data, null, 2));
+                    console.log(JSON.stringify(res.config.headers, null, 2));
                     const user = res.data;
-                    setAction("google");
-                    loginUser(user, action)
+                    loginUser(user, "google")
                     .then((response) => {
                         console.log(JSON.stringify(response.data, null, 2));
                         setCurrentUser(response.data);  
