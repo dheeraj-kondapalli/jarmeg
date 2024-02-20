@@ -8,6 +8,7 @@ import New from './Pages/LoginPage/Trail';
 import Footer from "./Pages/Footer/footer";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Card from './Components/card/card';
+import ProductList from './Pages/Products/products';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path='/login' element = {<LoginPage/>}/>
           <Route path='/newpage' element = {<New/>}/>
           <Route path='/footer' element = {<Footer/>}/>
-          <Route path='/card' element = {<Card/>}/>
+          <Route path='/men' element = {<ProductList/>}/>
         </Routes>
       </Layout>
       </BrowserRouter>

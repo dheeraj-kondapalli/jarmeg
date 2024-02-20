@@ -6,10 +6,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React, { useState } from 'react';
 import './LoginModal.css'
-import close from '../Pages/Assets/close-button.svg'
+import close from '../../Pages/Assets/close-button.svg'
 import'./Navigation.css'
 import Modal from 'react-bootstrap/Modal';
-import LoginPage from '../Pages/LoginPage/LoginPage';
+import LoginPage from '../../Pages/LoginPage/LoginPage';
 
 function Navigation() {
     const [show, setShow] = useState(false);
@@ -43,7 +43,7 @@ function Navigation() {
                         <Nav.Link href="#action1">New Collection</Nav.Link>
                         <Nav.Link href="#action2">Sale</Nav.Link>
                         <NavDropdown title="Products" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="/card">Men</NavDropdown.Item>
+                            <NavDropdown.Item href="/men">Men</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">
                                 Women
                             </NavDropdown.Item>

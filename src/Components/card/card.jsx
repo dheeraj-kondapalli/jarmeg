@@ -1,24 +1,24 @@
 import React from "react";
-import product from '../../Pages/Assets/shoe1.jpg'
+import productimg from '../../Pages/Assets/shoe1.jpg'
+import './card.css'
 
-const Card = () => {
+const Card = ({ product }) => {
+    return (
 
-    return(
-        <div className="border">
-        <div className="cardouter">
-            <div className="imageholder">
-                <img src={product} alt="" />
+            <div className="cardouter">
+                <div className="imageholder">
+                    <img src={productimg} alt="" />
+                </div>
+                <div className="textcomponent">
+                    <a className="cardlink" href={product.link}>
+                        <p className="title">{product.productName}</p>
+                        <p className="category">{product.model.modelName}</p>
+                        <p className="price">${product.price}</p>
+                    </a>
+                </div>
             </div>
-            <div className="textcomponent">
-            <a href="/men">
-                <p>Nike Dunk Burgundy<br></br>
-                Men's Shoes<br></br>
-                $112</p>            
-                </a>
-            </div>
-        </div>
-        </div>
+
     );
 }
 
-export default Card
+export default Card;

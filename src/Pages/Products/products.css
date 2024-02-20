@@ -1,0 +1,9 @@
+.border{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust the width of each column as needed */
+    gap: 20px; /* Adjust the gap between cards */
+    padding: 20px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
