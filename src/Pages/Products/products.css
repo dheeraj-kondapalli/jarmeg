@@ -1,8 +1,36 @@
+.outer{
+    display: flex;
+    flex-direction: column;
+}
+.banner{
+    height: 40vh;
+    width: -webkit-fill-available;
+    position: inherit;
+}
 .border{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.sidebar{
+    width: 30vw;
+    height: 100vh;
+    background-color: beige;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+}
+.filtercontent{
+    width: fit-content;
+    height: fit-content;
+}
+.cards{
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust the width of each column as needed */
-    gap: 20px; /* Adjust the gap between cards */
+    gap: 20px; 
     padding: 20px;
+    padding-top: 5%;
     background-color: white;
     align-items: center;
     justify-content: center;

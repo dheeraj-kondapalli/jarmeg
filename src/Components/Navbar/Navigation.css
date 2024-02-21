@@ -1,22 +1,53 @@
+.nav-container{
+    margin-top: 10px;
+    background-color: rgba(130, 130, 130, 0.199)!important; /* Semi-transparent white background */
+    backdrop-filter: blur(10px)!important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .navbar{
     --bs-navbar-padding-x: 0;
     --bs-navbar-padding-y: 0.2rem;
     display: flex;
+    width: 95vw;
+    border-radius: 30px;
+    margin-left: 2%;
+    justify-content: space-between;
+    align-items: center;
 }
 .nav-contents{
+    margin-right: 2%;
     display: flex;
     flex-direction: row;
 }
 .searchform{
-    margin-right: 20%;
+    margin-right: auto;
+    flex-grow: 1;
 }
 .search-box{
+    display: flex;
     margin-right: 8px;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
+    min-width: 100px;
+    border-radius: 20px;
+    flex-grow: 1;
+    background-color: rgba(199, 199, 199, 0.2)!important; /* Semi-transparent white background */
+    backdrop-filter: blur(10px)!important;
+    border: none;
 }
-.Title{
-    padding-left: 15px;
+.search-box-button{
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50px;
 }
 .signupbtn{
     margin-right: 15px;
+}
+.userIcon{
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+.cartIcon{
+    cursor: pointer;
 }

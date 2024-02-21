@@ -21,11 +21,28 @@ const ProductList = () => {
         }
     }
 
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
     return (
+        <div className="outer">
+        <div className="banner"></div>
         <div className='border'>
-            {products.map(product => (
+            {show===true?<div className="sidebar">
+            there!
+            </div>:<div></div>}
+            <div className="filtercontent col 8">
+                <div className='cards' >
+                <button onClick={handleShow} >open sidebar</button>
+                <button onClick={handleClose} >close sidebar</button>
+                {products.map(product => (
                 <Card key={product.id} product={product} />
-            ))}
+            ))}</div></div>
+        </div>
+        <div className="banner"></div>
         </div>
     );
 }
