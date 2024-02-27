@@ -1,13 +1,17 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import './LoginPage.css'
 import img from '../Assets/logo1.png'
 import glogo from '../Assets/google logo.png'
 import {loginUser} from "../../Services/UserService";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
+import Cookies from "js-cookie";
+import { useUserContext } from '../../User/userContext';
 
 
-const LoginPage = ({setCurrentUser}) => {
+const LoginPage = ({updateUser}) => {
+
+    const {setUserData} = useUserContext();
 
     const [user, setUser] = useState({
         firstname: '',
@@ -21,7 +25,15 @@ const LoginPage = ({setCurrentUser}) => {
         loginUser(user, action)
         .then((response) => {
             console.log(JSON.stringify(response.data, null, 2));
-            setCurrentUser(response.data);  
+            Cookies.set('jwtToken', response.data.jwtToken);
+            const data = {
+                username: response.data.username,
+                email: response.data.email
+              };
+            setUserData(data);
+            sessionStorage.setItem('userData', JSON.stringify(data));
+            console.log(data)
+            updateUser(true);  
         })
         .catch((error) => {
             console.log(error);
@@ -52,7 +64,6 @@ const LoginPage = ({setCurrentUser}) => {
                     loginUser(user, "google")
                     .then((response) => {
                         console.log(JSON.stringify(response.data, null, 2));
-                        setCurrentUser(response.data);  
                     })
                     .catch((error) => {
                         console.log(error);

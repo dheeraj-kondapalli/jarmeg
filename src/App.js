@@ -9,12 +9,22 @@ import Footer from "./Pages/Footer/footer";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import ProductList from './Pages/Products/products';
 import Trial from './Pages/LoginPage/Trail'
+import Cookies from 'js-cookie';
+import { UserProvider } from './User/userContext';
+import Page from './Pages/home1/page';
+import ProtectedRoute from './ProtectedRoute';
+
 
 function App() {
+
+  const jwttoken = Cookies.get('jwtToken');
+  console.log(jwttoken);
+
   return (
     <GoogleOAuthProvider clientId="219626227329-99khfealuh9b7l3dhl1bb32vug12c6rf.apps.googleusercontent.com">
     <div>
       <BrowserRouter>
+      <UserProvider>
       <Layout>
         <Routes>
           <Route index element= {<Home/>}/>
@@ -22,12 +32,15 @@ function App() {
           <Route path='/login' element = {<LoginPage/>}/>
           <Route path='/newpage' element = {<New/>}/>
           <Route path='/footer' element = {<Footer/>}/>
-          <Route path='/men' element = {<ProductList/>}/>
+          <Route path='/men' element={<ProtectedRoute/>}>
+            <Route path='/men' element={<ProductList/>}/>
+          </Route>
           <Route path='/trial' element = {<Trial/>}/>
+          <Route path='/page' element = {<Page/>}/>
         </Routes>
       </Layout>
+      </UserProvider>
       </BrowserRouter>
-      
     </div>
     </GoogleOAuthProvider>
   );
