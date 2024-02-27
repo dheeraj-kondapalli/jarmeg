@@ -5,14 +5,14 @@ import Cookies from 'js-cookie';
 import { useUserContext } from './User/userContext';
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {
-    const { SetLogin } = useUserContext();
+    const { setLogin } = useUserContext();
     const token = Cookies.get('jwtToken');
   if (token) {
     const decodedToken = jwtDecode(token);
     if (decodedToken.exp * 1000 < Date.now()) {
         Cookies.remove('jwtToken');
         sessionStorage.clear('userData');
-        SetLogin(false);
+        setLogin(false);
       return <Navigate to="/login" />;
     }
   } else {

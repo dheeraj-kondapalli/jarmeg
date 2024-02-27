@@ -20,15 +20,15 @@ function Navigation() {
     const  { userData }  = useUserContext();
     const [show, setShow] = useState(false);
     // const [login, SetLogin] = useState(sessionStorage.getItem('login') === 'true');
-    const { login, SetLogin } = useUserContext();
+    const { login, setLogin } = useUserContext();
 
     const signInUser =(data) => {
-        SetLogin(data);
+        setLogin(data);
         console.log("in signinfunct")
         console.log(data)
     }
     const signOutUser =() => {
-        SetLogin(false);
+        setLogin(false);
     }
 
     useEffect(() => {

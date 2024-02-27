@@ -22,7 +22,7 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId="219626227329-99khfealuh9b7l3dhl1bb32vug12c6rf.apps.googleusercontent.com">
-    <div>
+    <div className='base'>
       <BrowserRouter>
       <UserProvider>
       <Layout>

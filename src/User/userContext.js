@@ -5,7 +5,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
-  const [login, SetLogin] = useState(sessionStorage.getItem('login') === 'true');
+  const [login, setLogin] = useState(sessionStorage.getItem('login') === 'true');
 
   useEffect(() => {
     // Load user data from session storage on component mount
@@ -15,11 +15,12 @@ export const UserProvider = ({ children }) => {
     }
     else{
         setUserData([]);
+        setLogin(false);
     }
   }, []);
 
   return (
-    <UserContext.Provider value={{ userData, setUserData, login, SetLogin }}>
+    <UserContext.Provider value={{ userData, setUserData, login, setLogin }}>
       {children}
     </UserContext.Provider>
   );
