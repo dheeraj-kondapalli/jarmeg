@@ -13,9 +13,17 @@ import Cookies from 'js-cookie';
 import { UserProvider } from './User/userContext';
 import Page from './Pages/home1/page';
 import ProtectedRoute from './ProtectedRoute';
+import { useEffect } from 'react';
 
 
 function App() {
+
+  // useEffect(() => {
+  //   document.cookie.split(";").forEach((c) => {
+  //     document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  //   });
+  //   sessionStorage.clear();
+  // }, []);
 
   const jwttoken = Cookies.get('jwtToken');
   console.log(jwttoken);

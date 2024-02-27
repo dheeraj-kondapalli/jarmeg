@@ -26,6 +26,7 @@ const LoginPage = ({updateUser}) => {
         .then((response) => {
             console.log(JSON.stringify(response.data, null, 2));
             Cookies.set('jwtToken', response.data.jwtToken);
+            Cookies.set('uniqueToken', response.data.uniqueToken);
             const data = {
                 username: response.data.username,
                 email: response.data.email

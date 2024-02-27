@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Pages/Assets/jarmeg1.png'
 import { useUserContext } from '../../User/userContext';
+import Cookies from 'js-cookie';
 
 function Navigation() {
 
@@ -29,10 +30,18 @@ function Navigation() {
     }
     const signOutUser =() => {
         setLogin(false);
+        Cookies.remove('jwtToken');
+        Cookies.remove('uniqueToken');
+        sessionStorage.clear('userData');
     }
 
     useEffect(() => {
         sessionStorage.setItem('login', login);
+        if (login === false){
+            Cookies.remove('jwtToken');
+            Cookies.remove('uniqueToken');
+            sessionStorage.clear('userData');
+        }
     }, [login]);
     
     const handleClose = () => setShow(false);
