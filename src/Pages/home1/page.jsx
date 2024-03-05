@@ -48,8 +48,9 @@ const page = () => {
           <div className="rectangle" />
           <div className="rectangle-2" />
           <div className="rectangle-3" />
+          <div className="rectangle-4" />
         </div>
-        <div className="rectangle-4" />
+        
       </div>
     </div>
   );

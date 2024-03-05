@@ -22,3 +22,57 @@
     height: 400px;
     object-fit: cover;
 }
+.text-wrapper {
+    padding-top: 15px;
+    color: #000000;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+}
+.ellipse {
+    background-color: #ffffff;
+    border-radius: 80.45px;
+    height: 161px;
+    width: 161px;
+    overflow: hidden;
+}
+.ellipse img{
+    height: inherit;
+}
+.ellipse:hover img {
+    cursor: pointer;
+    transform: scale(1.2); /* Zoom the image by 20% when container is hovered */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for the transform */
+  }
+.shop-by-category{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+.group{
+    margin: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.feature-photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: max-content;
+    width: 100%;
+    padding-bottom: 30px;
+}
+.rectangle {
+    margin: auto;
+    background-color: #d9d9d9;
+    border-radius: 25px;
+    box-shadow: 0px 6px 4px #0000004c;
+    height: 450px;
+    width: 300px;
+}

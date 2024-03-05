@@ -15,23 +15,26 @@ const ProtectedRoute = ({ element: Component, ...rest }) => {
         jwtToken: token,
         uniqueToken: Cookies.get('uniqueToken')
       };
-      try{
-        console.log(JSON.stringify(user));
-        loginUser(JSON.stringify(user), "refresh")
+      loginUser(JSON.stringify(user), "refresh")
         .then((response) => {
+          if(response.OK  ){
           Cookies.set('jwtToken', response.data.jwtToken);
           Cookies.set('uniqueToken', response.data.uniqueToken);
           setLogin(true);
-          return <Outlet/>;        
-        });
-      }catch (err){
+          return <Outlet/>;
+          }
+          else{
+            throw new Error('token expired, login again');
+          }        
+        })
+        .catch((err) => {
         console.log(err);
         Cookies.remove('jwtToken');
         sessionStorage.clear('userData');
         setLogin(false);
       return <Navigate to="/login" />;
-      }
-    }
+    });
+    }  
   } else {
     return <Navigate to="/login" />;
   }

@@ -30,7 +30,7 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId="219626227329-99khfealuh9b7l3dhl1bb32vug12c6rf.apps.googleusercontent.com">
-    <div className='base'>
+    <div>
       <BrowserRouter>
       <UserProvider>
       <Layout>
@@ -46,6 +46,7 @@ function App() {
           <Route path='/trial' element = {<Trial/>}/>
           <Route path='/page' element = {<Page/>}/>
         </Routes>
+        <Footer/>
       </Layout>
       </UserProvider>
       </BrowserRouter>
