@@ -7,10 +7,13 @@ import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useUserContext } from '../../User/userContext';
+import { useNavigate } from 'react-router-dom';
 
+const LoginPage = () => {
 
-const LoginPage = ({updateUser}) => {
+    const { setLogin } = useUserContext();
 
+    const navigate = useNavigate();
     const {setUserData} = useUserContext();
 
     const [user, setUser] = useState({
@@ -34,7 +37,14 @@ const LoginPage = ({updateUser}) => {
             setUserData(data);
             sessionStorage.setItem('userData', JSON.stringify(data));
             console.log(data)
-            updateUser(true);  
+            setLogin(true);
+            const prevLocation = sessionStorage.getItem('prevLocation');
+            if (prevLocation) {
+            sessionStorage.removeItem('prevLocation');
+            navigate(prevLocation, { replace: true });
+            } else {
+            navigate('/');
+            }
         })
         .catch((error) => {
             console.log(error);

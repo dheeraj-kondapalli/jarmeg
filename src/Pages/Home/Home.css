@@ -7,7 +7,8 @@
 }
 .carousel-container{
     margin: 3%;
-    margin-top: 5%;
+    margin-top: 6%;
+    margin-bottom: 2%;
     width: -webkit-fill-available;
     height: 400px;
     overflow: hidden;

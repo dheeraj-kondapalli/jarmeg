@@ -59,15 +59,11 @@ function Navigation() {
                         navbarScroll
                     >
                         <Nav.Link href="#action1">Collection</Nav.Link>
-                        <Nav.Link href="#action2">Sale</Nav.Link>
+                        <Nav.Link href="/sale">Sale</Nav.Link>
                         <NavDropdown title="Products" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/men">Men</NavDropdown.Item>
-                            <NavDropdown.Item href="#action4">
-                                Women
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action5">
-                                Kids
-                            </NavDropdown.Item>
+                            <NavDropdown.Item href="/women">Women</NavDropdown.Item>
+                            <NavDropdown.Item href="/kids">Kids</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#" disabled>
                             Clearance

@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../Components/card/card';
 import './products.css'
+import { useLocation } from 'react-router-dom';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
+    const location = useLocation();
 
     useEffect(() => {
         // Fetch product data here and setProducts with the fetched data
         fetchProducts();
     }, []);
 
+    console.log(location)
+    const pathname = location.pathname;
     const fetchProducts = async () => {
         try {
-            const response = await fetch('http://localhost:8083/products');
+            const response = await fetch(`http://localhost:8083/products/filter${pathname}`);
             const data = await response.json();
             console.log(data)
             setProducts(data);

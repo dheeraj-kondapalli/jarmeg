@@ -5,6 +5,8 @@ import C2 from '../Assets/carousel_2.png';
 import C3 from '../Assets/carousel_3.png';
 import men from '../Assets/men.jpg';
 import women from '../Assets/women.jpg'
+import kids from '../Assets/kids.jpeg'
+import sale from '../Assets/sale.png'
 import'./Home.css'
 
 
@@ -48,11 +50,11 @@ const Home = () => {
             <div className="text-wrapper">Women</div>
           </div>
           <div className="group">
-            <div className="ellipse" />
+            <a href="/kids"></a><div className="ellipse"><img src={kids}/></div>
             <div className="text-wrapper">Kids</div>
           </div>
           <div className="group">
-            <div className="ellipse" />
+            <a href="/sale"></a><div className="ellipse"><img src={sale}/></div>
             <div className="text-wrapper">Sale</div>
           </div>
     </div>

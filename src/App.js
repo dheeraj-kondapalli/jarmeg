@@ -43,6 +43,9 @@ function App() {
           <Route path='/men' element={<ProtectedRoute/>}>
             <Route path='/men' element={<ProductList/>}/>
           </Route>
+          <Route path='/women' element={<ProtectedRoute/>}>
+            <Route path='/women' element={<ProductList/>}/>
+          </Route>
           <Route path='/trial' element = {<Trial/>}/>
           <Route path='/page' element = {<Page/>}/>
         </Routes>

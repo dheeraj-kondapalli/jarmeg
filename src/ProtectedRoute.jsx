@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import React, { useEffect} from 'react';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { useUserContext } from './User/userContext';
@@ -8,6 +8,12 @@ import { loginUser } from './Services/UserService';
 const ProtectedRoute = ({ element: Component, ...rest }) => {
     const { setLogin } = useUserContext();
     const token = Cookies.get('jwtToken');
+    const location = useLocation();
+
+    useEffect(() => {
+      sessionStorage.setItem('prevLocation', location.pathname);
+    }, [location]);
+
   if (token) {
     const decodedToken = jwtDecode(token);
     if (decodedToken.exp * 1000 < Date.now()) {
@@ -17,7 +23,8 @@ const ProtectedRoute = ({ element: Component, ...rest }) => {
       };
       loginUser(JSON.stringify(user), "refresh")
         .then((response) => {
-          if(response.OK  ){
+          console.log(response)
+          if(response.data){
           Cookies.set('jwtToken', response.data.jwtToken);
           Cookies.set('uniqueToken', response.data.uniqueToken);
           setLogin(true);
