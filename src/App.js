@@ -10,11 +10,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import ProductList from './Pages/Products/products';
 import Trial from './Pages/LoginPage/Trail'
 import Cookies from 'js-cookie';
-import { UserProvider } from './User/userContext';
-import Page from './Pages/home1/page';
+import { UserProvider } from './Contexts/userContext';
+import Page from './Pages/productPage/page';
 import ProtectedRoute from './ProtectedRoute';
-import { useEffect } from 'react';
-
 
 function App() {
 
@@ -40,14 +38,13 @@ function App() {
           <Route path='/login' element = {<LoginPage/>}/>
           <Route path='/newpage' element = {<New/>}/>
           <Route path='/footer' element = {<Footer/>}/>
-          <Route path='/men' element={<ProtectedRoute/>}>
-            <Route path='/men' element={<ProductList/>}/>
+          <Route path='/products' element={<ProtectedRoute/>}>
+            <Route path='/products' element={<ProductList/>}/>
+            <Route path='/products/men' element={<ProductList/>}/>
+            <Route path='/products/women' element={<ProductList/>}/>
           </Route>
-          <Route path='/women' element={<ProtectedRoute/>}>
-            <Route path='/women' element={<ProductList/>}/>
-          </Route>
+          <Route path='/product/:productId' element = {<Page/>}/>
           <Route path='/trial' element = {<Trial/>}/>
-          <Route path='/page' element = {<Page/>}/>
         </Routes>
         <Footer/>
       </Layout>

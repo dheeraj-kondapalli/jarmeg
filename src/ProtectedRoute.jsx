@@ -2,7 +2,7 @@ import React, { useEffect} from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
-import { useUserContext } from './User/userContext';
+import { useUserContext } from './Contexts/userContext';
 import { loginUser } from './Services/UserService';
 
 const ProtectedRoute = ({ element: Component, ...rest }) => {

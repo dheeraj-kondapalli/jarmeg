@@ -13,7 +13,7 @@ import LoginPage from '../../Pages/LoginPage/LoginPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../Pages/Assets/jarmeg1.png'
-import { useUserContext } from '../../User/userContext';
+import { useUserContext } from '../../Contexts/userContext';
 import Cookies from 'js-cookie';
 
 function Navigation() {
@@ -60,10 +60,11 @@ function Navigation() {
                     >
                         <Nav.Link href="#action1">Collection</Nav.Link>
                         <Nav.Link href="/sale">Sale</Nav.Link>
-                        <NavDropdown title="Products" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="/men">Men</NavDropdown.Item>
-                            <NavDropdown.Item href="/women">Women</NavDropdown.Item>
-                            <NavDropdown.Item href="/kids">Kids</NavDropdown.Item>
+                        <NavDropdown title="Products" id="navbarScrollingDropdown" >
+                            <NavDropdown.Item href="/products">Products</NavDropdown.Item>
+                            <NavDropdown.Item href="/products/men">Men</NavDropdown.Item>
+                            <NavDropdown.Item href="/products/women">Women</NavDropdown.Item>
+                            <NavDropdown.Item href="/products/kids">Kids</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#" disabled>
                             Clearance
@@ -90,7 +91,7 @@ function Navigation() {
                             <NavDropdown.Item href="#" onClick={signOutUser}>Logout</NavDropdown.Item>
                         </NavDropdown>)}</div>}
                         </div>
-                        <FontAwesomeIcon className='cartIcon' icon={ faCartShopping }  />
+                        <a className='cart' href='/trial'><FontAwesomeIcon className='cartIcon' icon={ faCartShopping }/></a>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

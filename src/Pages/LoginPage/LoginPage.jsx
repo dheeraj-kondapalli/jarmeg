@@ -6,7 +6,7 @@ import {loginUser} from "../../Services/UserService";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import Cookies from "js-cookie";
-import { useUserContext } from '../../User/userContext';
+import { useUserContext } from '../../Contexts/userContext';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {

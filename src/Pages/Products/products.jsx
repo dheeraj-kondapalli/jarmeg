@@ -16,7 +16,7 @@ const ProductList = () => {
     const pathname = location.pathname;
     const fetchProducts = async () => {
         try {
-            const response = await fetch(`http://localhost:8083/products/filter${pathname}`);
+            const response = await fetch(`http://localhost:8083${pathname}`);
             const data = await response.json();
             console.log(data)
             setProducts(data);

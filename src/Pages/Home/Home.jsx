@@ -42,15 +42,15 @@ const Home = () => {
     </div>
     <div className="shop-by-category">
           <div className="group">
-            <a href="/men"><div className="ellipse"><img src={men}/></div></a>
+            <a href="/products/men"><div className="ellipse"><img src={men}/></div></a>
             <div className="text-wrapper">Men</div>
           </div>
           <div className="group">
-            <a href="/women"><div className="ellipse"><img src={women}/></div></a>
+            <a href="/products/women"><div className="ellipse"><img src={women}/></div></a>
             <div className="text-wrapper">Women</div>
           </div>
           <div className="group">
-            <a href="/kids"></a><div className="ellipse"><img src={kids}/></div>
+            <a href="/products/kids"></a><div className="ellipse"><img src={kids}/></div>
             <div className="text-wrapper">Kids</div>
           </div>
           <div className="group">

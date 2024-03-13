@@ -1,8 +1,8 @@
 import React from "react";
 import productimg from '../../Pages/Assets/shoe1.jpg'
 import './card.css'
-
 const Card = ({ product }) => {
+    
     return (
 
             <div className="cardouter">
@@ -10,7 +10,7 @@ const Card = ({ product }) => {
                     <img src={productimg} alt="" />
                 </div>
                 <div className="textcomponent">
-                    <a className="cardlink" href={product.link}>
+                    <a className="cardlink"  href = {`/product/${product.productId}`} >
                         <p className="title">{product.productName}</p>
                         <p className="category">{product.model.modelName}</p>
                         <p className="price">${product.price}</p>
