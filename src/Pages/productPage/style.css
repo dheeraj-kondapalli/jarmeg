@@ -1,0 +1,9 @@
+.outerProductContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+.buttongroup{
+    display: flex;
+    flex-direction: row;
+}
