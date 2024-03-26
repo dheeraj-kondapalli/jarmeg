@@ -31,6 +31,7 @@ const LoginPage = () => {
             Cookies.set('jwtToken', response.data.jwtToken);
             Cookies.set('uniqueToken', response.data.uniqueToken);
             const data = {
+                userId: response.data.userId,
                 username: response.data.username,
                 email: response.data.email
               };

@@ -4,25 +4,18 @@ import Home from './Pages/Home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './Layout/Layout';
 import LoginPage from './Pages/LoginPage/LoginPage';
-import New from './Pages/LoginPage/Trail';
+import New from './Pages/Cart/Cart';
 import Footer from "./Pages/Footer/footer";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import ProductList from './Pages/Products/products';
-import Trial from './Pages/LoginPage/Trail'
+import Cart from './Pages/Cart/Cart'
 import Cookies from 'js-cookie';
 import { UserProvider } from './Contexts/userContext';
 import Page from './Pages/productPage/page';
 import ProtectedRoute from './ProtectedRoute';
 
 function App() {
-
-  // useEffect(() => {
-  //   document.cookie.split(";").forEach((c) => {
-  //     document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-  //   });
-  //   sessionStorage.clear();
-  // }, []);
-
+  
   const jwttoken = Cookies.get('jwtToken');
   console.log(jwttoken);
 
@@ -43,8 +36,10 @@ function App() {
             <Route path='/products/men' element={<ProductList/>}/>
             <Route path='/products/women' element={<ProductList/>}/>
           </Route>
+          <Route path='/cart' element={<ProtectedRoute/>}>
+            <Route path='/cart' element = {<Cart/>}/>
+          </Route>
           <Route path='/product/:productId' element = {<Page/>}/>
-          <Route path='/trial' element = {<Trial/>}/>
         </Routes>
         <Footer/>
       </Layout>

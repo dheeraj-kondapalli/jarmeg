@@ -1,0 +1,13 @@
+.tabouter{
+    background-color: bisque;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+    align-items: center;
+}
+.imgholder{
+    max-width: 200px;
+}
+.imgholder img{
+    width: 200px;
+}

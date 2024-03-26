@@ -4,7 +4,6 @@ import "./style.css";
 import productimg from '../../Pages/Assets/shoe1.jpg'
 import { getProduct } from "../../Services/ProductService";
 import { addToCart } from '../../Services/CartService';
-import axios from "axios";
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -18,7 +17,7 @@ const ProductPage = () => {
     });
   }, []);
 
-  const [selectedQuantity, setSelectedQuantity] = useState('');
+  const [selectedQuantity, setSelectedQuantity] = useState('1');
 
   const handleChange = (e) => {
     setSelectedQuantity(e.target.value);
@@ -29,13 +28,8 @@ const ProductPage = () => {
     quantity: selectedQuantity
   };
   console.log(JSON.stringify(inventoryRequest))
-  const headers = {
-    'Content-Type': 'application/json',
-    'userId': '1'
-  };
-
   const handleAddToCart = () => {
-    axios.post("http://localhost:8082/cart/addToCart",JSON.stringify(inventoryRequest), {headers})
+    addToCart(JSON.stringify(inventoryRequest))
     .then((response) => {
       console.log(response)
     })

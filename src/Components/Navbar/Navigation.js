@@ -20,7 +20,6 @@ function Navigation() {
 
     const  { userData }  = useUserContext();
     const [show, setShow] = useState(false);
-    // const [login, SetLogin] = useState(sessionStorage.getItem('login') === 'true');
     const { login, setLogin } = useUserContext();
 
     const signInUser =(data) => {
@@ -91,7 +90,7 @@ function Navigation() {
                             <NavDropdown.Item href="#" onClick={signOutUser}>Logout</NavDropdown.Item>
                         </NavDropdown>)}</div>}
                         </div>
-                        <a className='cart' href='/trial'><FontAwesomeIcon className='cartIcon' icon={ faCartShopping }/></a>
+                        <a className='cart' href='/cart'><FontAwesomeIcon className='cartIcon' icon={ faCartShopping }/></a>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
