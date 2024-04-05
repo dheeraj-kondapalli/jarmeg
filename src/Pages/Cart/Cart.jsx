@@ -12,6 +12,8 @@ const Cart = () => {
   });
 
   const [updateCart, setUpdateCart] = useState(1)
+  const [subTotal, setSubTotal] = useState(0);
+
 
   useEffect(() =>{
     getCart()
@@ -22,6 +24,7 @@ const Cart = () => {
     .catch((e) => {
       console.log(e)
     })
+    totalCaluclation();
   }, [updateCart])
 
   const [selectedProductIds, setSelectedProductIds] = useState([]);
@@ -37,12 +40,10 @@ const Cart = () => {
   };
 
   const removeItems = () => {
-      console.log(JSON.stringify(selectedProductIds))
       setTimeout(() => {
         removeItem(selectedProductIds)
         .then((response) => {
           console.log(response)
-          setSelectedProductIds([])
           setUpdateCart(prevValue => prevValue + 1)
         }).catch((e)=>{
           console.log(e)
@@ -50,16 +51,46 @@ const Cart = () => {
       });
   }
 
+  const removeOneItem = (productId) => {
+    setTimeout(() => {
+      removeItem(productId)
+      .then((response) => {
+        console.log(response)
+        setUpdateCart(prevValue => prevValue + 1)
+      }).catch((e)=>{
+        console.log(e)
+      })
+    });
+}
+
+const totalCaluclation = () => {
+  let totalItems = 0
+  const products = cartItems.productQuantity;
+  products.forEach(product => {totalItems += product.quantity})
+  return totalItems;
+}
+
+const subTotalCalc = (subtotal) => {
+  console.log(subtotal)
+  let price = 0;
+  price += subtotal;
+  console.log(price)
+  setSubTotal(price)
+}
+
   return (
     <div className='outerCartContainer'>
       <div className="productsList">
       {cartItems.productQuantity.map((product) => (
-        <Tab key={product.productId} product = {product} isSelected={selectedProductIds.includes(product.productId)}
-        onSelect={() => toggleSelection(product.productId)}/>
+        <Tab className="productsTab" key={product.productId} product = {product} isSelected={selectedProductIds.includes(product.productId)}
+        onSelect={() => toggleSelection(product.productId)} removeOneItem={() => removeOneItem(product.productId)} subTotalCalc = {subTotalCalc}/>
       ))}
+      <button onClick={removeItems}>Remove Selected Items</button>
       </div>
-      <button onClick={removeItems}>Remove Items</button>
-      <div className="checkout">chechkout</div>
+      <div className="checkout" >
+        <h1>Checkout</h1>
+        <h3>Sub Total ({totalCaluclation()}) items: {subTotal} </h3>
+      </div>
     </div>
   );
 }

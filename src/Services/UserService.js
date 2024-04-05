@@ -18,7 +18,12 @@ function  loginUser(user, action){
                 }
               });
         case "google":
-            return axios.post('http://localhost:8085/auth/google', user);
+            return axios.post('http://localhost:8085/auth/google', user,  {
+              headers: {
+                'Token-Type': 'Google',
+                'Content-Type': 'application/json'
+              }
+            });
         case "refresh":
             return axios.post('http://localhost:8085/auth/refreshToken', user, {
                 headers: {

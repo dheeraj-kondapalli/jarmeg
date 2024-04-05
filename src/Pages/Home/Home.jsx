@@ -7,6 +7,10 @@ import men from '../Assets/men.jpg';
 import women from '../Assets/women.jpg'
 import kids from '../Assets/kids.jpeg'
 import sale from '../Assets/sale.png'
+import rect1 from '../Assets/item1.jpg'
+import rect2 from '../Assets/item2.jpg'
+import rect3 from '../Assets/item3.jpg'
+import rect4 from '../Assets/item4.jpg'
 import'./Home.css'
 
 
@@ -40,6 +44,9 @@ const Home = () => {
       </Carousel.Item>
     </Carousel>
     </div>
+    <div className="title1">
+      <h1>Select by Category</h1>
+    </div>
     <div className="shop-by-category">
           <div className="group">
             <a href="/products/men"><div className="ellipse"><img src={men}/></div></a>
@@ -59,10 +66,18 @@ const Home = () => {
           </div>
     </div>
         <div className="feature-photos">
-          <div className="rectangle" />
-          <div className="rectangle" />
-          <div className="rectangle" />
-          <div className="rectangle" />
+          <div className="rectangle">
+            <img src={rect1}></img>
+          </div>
+          <div className="rectangle">
+            <img src={rect3}></img>
+          </div>
+          <div className="rectangle">
+            <img src={rect2}></img>
+          </div>
+          <div className="rectangle">
+            <img src={rect4}></img>
+          </div>
         </div>          
     </div>
     

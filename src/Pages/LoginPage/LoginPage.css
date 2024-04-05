@@ -122,3 +122,7 @@
 .input-group{
     width: 350px;
 }
+.form-control:focus {
+    box-shadow: 0 0 0 0.1rem rgba(50, 50, 50, 0.3); /* Change box-shadow color */
+    border-color: rgba(60, 60, 60, 0.5); /* Set border color */
+}

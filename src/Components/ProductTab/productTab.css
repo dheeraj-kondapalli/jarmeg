@@ -2,8 +2,18 @@
     background-color: bisque;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2%;
+    margin: 2%;
     align-items: center;
+}
+.itemCheckbox{
+    margin: 2%;
+}
+.textComponent{
+    align-self: center;
+    margin-left: 5%;
+}
+.removeButton{
+    margin-top: 5%;
 }
 .imgholder{
     max-width: 200px;

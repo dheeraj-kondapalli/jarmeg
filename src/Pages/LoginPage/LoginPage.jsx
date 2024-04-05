@@ -28,6 +28,7 @@ const LoginPage = () => {
         loginUser(user, action)
         .then((response) => {
             console.log(JSON.stringify(response.data, null, 2));
+            Cookies.set('loginType', 'formLogin');
             Cookies.set('jwtToken', response.data.jwtToken);
             Cookies.set('uniqueToken', response.data.uniqueToken);
             const data = {
@@ -63,6 +64,7 @@ const LoginPage = () => {
     const googleLogin =
         useGoogleLogin({
         onSuccess: async(response) => {
+            console.log(response)
             try{
                 const res = await axios.get(
                     "https://www.googleapis.com/oauth2/v3/userinfo",
@@ -76,6 +78,23 @@ const LoginPage = () => {
                     loginUser(user, "google")
                     .then((response) => {
                         console.log(JSON.stringify(response.data, null, 2));
+                        const data = {
+                            userId: response.data.userId,
+                            username: response.data.username,
+                            email: response.data.email
+                          };
+                        setUserData(data);
+                        sessionStorage.setItem('userData', JSON.stringify(data));
+                        console.log(data)
+                        setLogin(true);
+                        Cookies.set('loginType', 'googleLogin');
+                        const prevLocation = sessionStorage.getItem('prevLocation');
+                        if (prevLocation) {
+                        sessionStorage.removeItem('prevLocation');
+                        navigate(prevLocation, { replace: true });
+                        } else {
+                        navigate('/');
+                        }
                     })
                     .catch((error) => {
                         console.log(error);

@@ -13,6 +13,7 @@ import Cookies from 'js-cookie';
 import { UserProvider } from './Contexts/userContext';
 import Page from './Pages/productPage/page';
 import ProtectedRoute from './ProtectedRoute';
+import LoginContainer from './Pages/LoginContainer/LoginContainer';
 
 function App() {
   
@@ -28,7 +29,7 @@ function App() {
         <Routes>
           <Route index element= {<Home/>}/>
           <Route path='/home' element = {<Home/>}/>
-          <Route path='/login' element = {<LoginPage/>}/>
+          <Route path='/login' element = {<LoginContainer/>}/>
           <Route path='/newpage' element = {<New/>}/>
           <Route path='/footer' element = {<Footer/>}/>
           <Route path='/products' element={<ProtectedRoute/>}>

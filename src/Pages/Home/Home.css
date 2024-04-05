@@ -4,29 +4,37 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(218, 218, 218);
+    font-family: Poppins, sans-serif;
 }
 .carousel-container{
     margin: 3%;
     margin-top: 6%;
     margin-bottom: 2%;
     width: -webkit-fill-available;
-    height: 400px;
+    height: 600px;
     overflow: hidden;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 20px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 .carouselImg{
     width: inherit;
-    height: 400px;
+    height: 600px;
     object-fit: cover;
+}
+.title1{
+    margin-top: 6%;
+    margin-bottom: 4%;
+}
+.title1 h1{
+    font-weight: 600;
+    font-size: 80px;
+    word-spacing: 0.2em;
+    letter-spacing: 0.02em;
+    text-shadow: 2px 2px 3px #2727274c;
 }
 .text-wrapper {
     padding-top: 15px;
     color: #000000;
-    font-family: "Inter-SemiBold", Helvetica;
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 0;
@@ -35,18 +43,20 @@
 }
 .ellipse {
     background-color: #ffffff;
-    border-radius: 80.45px;
-    height: 161px;
-    width: 161px;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 .ellipse img{
     height: inherit;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the transform */
 }
 .ellipse:hover img {
     cursor: pointer;
     transform: scale(1.2); /* Zoom the image by 20% when container is hovered */
-    transition: transform 0.2s ease-in-out; /* Smooth transition for the transform */
   }
 .shop-by-category{
     display: flex;
@@ -65,15 +75,31 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: max-content;
-    width: 100%;
+    justify-content: space-around;
+    height: 600px;
+    width: 90%;
     padding-bottom: 30px;
+    margin: 3%
 }
 .rectangle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     background-color: #d9d9d9;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 0px 6px 4px #0000004c;
     height: 450px;
     width: 300px;
+    overflow: hidden;
+    transition: border-radius 0.4s ease-in-out; /* Transition for border-radius */
+    transition: transform 0.4s ease-in-out;
+}
+.rectangle img{
+    height: 500px;
+}
+.rectangle:hover{
+    border-radius: 45px;
+    cursor: pointer;
+    transform: scale(1.1);
 }
