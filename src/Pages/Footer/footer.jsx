@@ -16,19 +16,19 @@ const Footer =() => {
                     <a href="/employer">
                         <p>Employer</p>
                     </a>
-                    <a href="/Men">
+                    <a href="/products/Men">
                         <p>Men</p>
                     </a>
-                    <a href="/women">
+                    <a href="/products/women">
                         <p>Women</p>
                     </a>
                 </div>
                 <div className="sb__footer-links_div">
                     <h4>Resources</h4>
-                    <a href="/men">
+                    <a href="/products/men">
                         <p>Men</p>
                     </a>
-                    <a href="/women">
+                    <a href="/employer">
                         <p>Employer</p>
                     </a>
                     <a href="/kids">
@@ -37,22 +37,22 @@ const Footer =() => {
                 </div>
                 <div className="sb__footer-links_div">
                     <h4>Resources</h4>
-                    <a href="/men">
+                    <a href="/products/men">
                         <p>Men</p>
                     </a>
-                    <a href="/women">
+                    <a href="/products/women">
                         <p>Employer</p>
                     </a>
-                    <a href="/kids">
+                    <a href="/products/kids">
                         <p>Kids</p>
                     </a>
                 </div>
                 <div className="sb__footer-links_div">
                     <h4>Resources</h4>
-                    <a href="/men">
+                    <a href="/products/men">
                         <p>Men</p>
                     </a>
-                    <a href="/women">
+                    <a href="/products/women">
                         <p>Employer</p>
                     </a>
                 </div>
@@ -74,10 +74,10 @@ const Footer =() => {
                 <div className="sb__footer-links_div">
                     <h4>Resources</h4>
                     <div className="socialmedia">
-                        <p><img src={facebook}/></p>
-                        <p><img src={twitter}/></p>
-                        <p><img src={instagram}/></p>
-                        <p><img src={pinterest}/></p>
+                        <p><img src={facebook}/> facebook</p>
+                        <p><img src={twitter}/> twitter</p>
+                        <p><img src={instagram}/> instagram</p>
+                        <p><img src={pinterest}/> pinterest</p>
                     </div>
                 </div>
             </div>

@@ -39,6 +39,8 @@ function Navigation() {
         if (login === false){
             Cookies.remove('jwtToken');
             Cookies.remove('uniqueToken');
+            Cookies.remove('googleAccessToken');
+            Cookies.remove('loginType');
             sessionStorage.clear('userData');
         }
     }, [login]);

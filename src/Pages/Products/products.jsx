@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../../Components/card/card';
 import './products.css'
 import { useLocation } from 'react-router-dom';
+import ToggleFilter from './togglefilter';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
@@ -34,7 +35,6 @@ const ProductList = () => {
     const handleToggleButtons = () => setShowButtons(prevShowButtons => !prevShowButtons);
 
 
-
     return (
         <div className="outer">
         <div className="banner">
@@ -44,24 +44,12 @@ const ProductList = () => {
         </div>
         <div className='border'>
             {show===true?<div className="sidebar">
-            there!
+            Filters
             <div className="filterbox">
-            <div className="filterboxheader">
-                <button className='' onClick={handleToggleButtons}><span>Filter1</span><a>+</a></button>
+            <ToggleFilter title="Gender" options={['Men', 'Women', 'Kids']}/>
+            <ToggleFilter title="Size" options={['Small', 'Medium', 'Large', 'XLarge', 'XXLarge']}/>
+            <ToggleFilter title="Model" options={['Pants', 'Jackets', 'Shirts']}/>
             </div>
-            {showButtons === true ? 
-            <div className="filterbody">
-                <ul className="values">
-                    <li><button className='filtervalue'>Button 1</button></li>
-                    <li><button className='filtervalue'>Button 2</button></li>
-                    <li><button className='filtervalue'>Button 3</button></li>
-                </ul>
-            </div>
-            :
-            <div></div>
-            }
-            </div>
-            
             </div>:<div></div>}
             <div className="filtercontent col 8">
                 <div className='cards' >
@@ -70,7 +58,6 @@ const ProductList = () => {
                 <Card key={product.id} product={product} />
             ))}</div></div>
         </div>
-        <div className="banner"></div>
         </div>
     );
 }

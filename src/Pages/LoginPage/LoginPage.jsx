@@ -64,7 +64,8 @@ const LoginPage = () => {
     const googleLogin =
         useGoogleLogin({
         onSuccess: async(response) => {
-            console.log(response)
+            console.log(response);
+            Cookies.set('googleAccessToken',response.access_token)
             try{
                 const res = await axios.get(
                     "https://www.googleapis.com/oauth2/v3/userinfo",
@@ -73,6 +74,7 @@ const LoginPage = () => {
                             Authorization: `Bearer ${response.access_token}`,
                         },
                     });
+                    console.log(res)
                     console.log(JSON.stringify(res.config.headers, null, 2));
                     const user = res.data;
                     loginUser(user, "google")
