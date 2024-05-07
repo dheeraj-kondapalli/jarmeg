@@ -7,7 +7,7 @@
 }
 .productsList{
     width: 70vw;
-    align-items: top;
+    align-items: center;
     justify-content: center;
     background-color: rgb(200, 189, 176);
 }
@@ -17,4 +17,12 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(254, 210, 156);
+    position: sticky;
+    top: 15vh;
+}
+.removeCheckout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

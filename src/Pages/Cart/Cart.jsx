@@ -85,9 +85,12 @@ const subTotalCalc = (subtotal) => {
         <Tab className="productsTab" key={product.productId} product = {product} isSelected={selectedProductIds.includes(product.productId)}
         onSelect={() => toggleSelection(product.productId)} removeOneItem={() => removeOneItem(product.productId)} subTotalCalc = {subTotalCalc}/>
       ))}
+      <div className='removeCheckout'style={{ display: cartItems.productQuantity.length === 0 ? 'none' : 'flex' }}>
       <button onClick={removeItems}>Remove Selected Items</button>
+      <button>Checkout</button>
       </div>
-      <div className="checkout" >
+      </div>
+      <div className="checkout">
         <h1>Checkout</h1>
         <h3>Sub Total ({totalCaluclation()}) items: {subTotal} </h3>
       </div>
